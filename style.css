@@ -1,0 +1,115 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background-color: #f8f8f8;
+    color: #333;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: #3498db;
+    color: white;
+    padding: 15px 0;
+    border-radius: 5px;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#note-list {
+    border: 1px solid #ddd;
+    padding: 15px;
+    background-color: white;
+    min-height: 300px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    /* Tambahkan CSS Grid untuk daftar catatan */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+#add-note {
+    border: 1px solid #ddd;
+    padding: 15px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+input[type="text"], textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus, textarea:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #4cae4c;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.8em;
+    display: block;
+    margin-top: 3px;
+}
+
+@media (max-width: 768px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    #note-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 400px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+    #add-note h2 {
+        font-size: 1.2rem;
+    }
+    button {
+        width: 100%;
+    }
+}

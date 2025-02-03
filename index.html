@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Custom Element: App Header -->
+    <app-header title="My Notes"></app-header>
+    
+    <main>
+        <section id="note-list"></section>
+        <section id="add-note">
+            <h2>Add New Note</h2>
+            <form id="add-note-form">
+                <div class="form-group">
+                    <label for="note-title">Title:</label>
+                    <input type="text" id="note-title" required>
+                    <!-- Custom Element: Input Error -->
+                    <input-error id="title-error"></input-error>
+                </div>
+                <div class="form-group">
+                    <label for="note-body">Body:</label>
+                    <textarea id="note-body" rows="5" required></textarea>
+                    <!-- Custom Element: Input Error -->
+                    <input-error id="body-error"></input-error>
+                </div>
+                <button type="submit">Add Note</button>
+            </form>
+        </section>
+    </main>
+    
+    <script src="notes.js"></script>
+    <script src="script.js"></script>
+    
+    <!-- Template untuk Note Card -->
+    <template id="note-template">
+        <style>
+            .note-card {
+                border: 1px solid #ddd;
+                padding: 15px;
+                background-color: white;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                border-radius: 5px;
+            }
+            .note-title {
+                font-weight: bold;
+                margin-bottom: 5px;
+                color: #2c3e50;
+            }
+            .note-body {
+                white-space: pre-line;
+                color: #34495e;
+            }
+            .archived-badge {
+                display: inline-block;
+                background-color: #e74c3c;
+                color: white;
+                padding: 3px 6px;
+                border-radius: 3px;
+                font-size: 0.8em;
+                margin-left: 10px;
+            }
+            .created-at {
+                font-size: 0.8em;
+                color: #777;
+                margin-top: 5px;
+            }
+        </style>
+        <div class="note-card">
+            <h3 class="note-title"></h3>
+            <span class="archived-badge">Archived</span>
+            <p class="note-body"></p>
+            <p class="created-at"></p>
+        </div>
+    </template>
+
+    <!-- Template untuk App Header -->
+    <template id="app-header-template">
+        <style>
+            .app-header {
+                text-align: center;
+                margin-bottom: 20px;
+                background-color: #3498db;
+                color: white;
+                padding: 15px 0;
+                border-radius: 5px;
+            }
+            .app-header h1 {
+                margin: 0;
+                font-family: 'Poppins', sans-serif;
+            }
+        </style>
+        <header class="app-header">
+            <h1></h1>
+        </header>
+    </template>
+
+    <!-- Template untuk Input Error -->
+    <template id="input-error-template">
+        <style>
+            .error-message {
+                color: red;
+                font-size: 0.8em;
+                display: block;
+                margin-top: 3px;
+            }
+        </style>
+        <span class="error-message"></span>
+    </template>
+</body>
+</html>
