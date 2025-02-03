@@ -11,19 +11,6 @@ class NoteCard extends HTMLElement {
         this.shadowRoot.appendChild(template.content.cloneNode(true));
     }
 
-    formatDate(isoString) {
-        const date = new Date(isoString);
-        const options = { 
-            year: 'numeric', 
-            month: 'long', 
-            day: 'numeric', 
-            hour: '2-digit', 
-            minute: '2-digit', 
-            hour12: false 
-        };
-        return date.toLocaleDateString('id-ID', options);
-    }
-
     attributeChangedCallback(name, oldValue, newValue) {
         if (name === 'title') {
             this.shadowRoot.querySelector('.note-title').textContent = newValue;
@@ -33,8 +20,8 @@ class NoteCard extends HTMLElement {
             const archivedBadge = this.shadowRoot.querySelector('.archived-badge');
             archivedBadge.style.display = newValue === 'true' ? 'inline' : 'none';
         } else if (name === 'created-at') {
-            const formattedDate = this.formatDate(newValue);
-            this.shadowRoot.querySelector('.created-at').textContent = `Created at: ${formattedDate}`;
+            // Tampilkan langsung ISO string
+            this.shadowRoot.querySelector('.created-at').textContent = `Created at: ${newValue}`;
         }
     }
 }
